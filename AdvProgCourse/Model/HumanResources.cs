@@ -14,6 +14,8 @@
 
         #region Properties
 
+        public int Count { get { return _people.Count; } }
+
         #endregion
 
         public HumanResources()
