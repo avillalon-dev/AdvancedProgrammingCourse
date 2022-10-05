@@ -9,7 +9,7 @@ namespace UnitTest
 
         public HumanResourcesTests()
         {
-            var humanResources = new HumanResources();
+            _humanResources = new HumanResources();
         }
 
         [TestMethod]
