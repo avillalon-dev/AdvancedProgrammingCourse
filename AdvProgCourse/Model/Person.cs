@@ -123,10 +123,30 @@
     }
 
     /// <summary>
+    /// Facultades
+    /// </summary>
+    public enum Faculty
+    {
+        /// <summary>
+        /// Automática y Biomédica
+        /// </summary>
+        AutomationBiomedical,
+        /// <summary>
+        /// Telecomunicaciones
+        /// </summary>
+        Telecommunication
+    }
+
+    /// <summary>
     /// Modela la información asociada a un estudiante.
     /// </summary>
     public class Student : Person
     {
+        /// <summary>
+        /// Facultad a la que pertenece el estudiante
+        /// </summary>
+        public Faculty Faculty;
+
         public Student(string name, DateTime birthDate, string email, int phoneNumber) 
             : base(name, birthDate, email, phoneNumber)
         {
