@@ -191,7 +191,3 @@ git_stats/*
 StyleCop.Cache
 bin
 obj
-FarmaIndReportGenerator/FarmaIndReportGeneratorDomain/App.config
-FarmaIndReportGenerator/WpfUI/App.config
-FarmaIndReportGenerator/ConsoleConfig/App.config
-FarmaIndReportGenerator/ConsoleSaveConfig/App.config
