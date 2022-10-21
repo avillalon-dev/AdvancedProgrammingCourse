@@ -47,15 +47,9 @@
         /// <param name="name">
         /// Nombre de la persona.
         /// </param>
-        /// <param name="birthDate"></param>
-        /// <param name="email"></param>
-        /// <param name="phoneNumber"></param>
-        public Person(string name, DateTime birthDate, string email, int phoneNumber)
+        protected Person(string name)
         {
             Name = name;
-            BirthDate = birthDate;
-            Email = email;
-            PhoneNumber = phoneNumber;
             IsActive = false;
         }
 
@@ -101,8 +95,8 @@
 
         #endregion
 
-        public Worker(string name, DateTime birthDate, string email, int phoneNumber, Departments department) 
-            : base(name, birthDate, email, phoneNumber)
+        public Worker(string name, Departments department) 
+            : base(name)
         {
             Department = department;
         }
@@ -147,9 +141,10 @@
         /// </summary>
         public Faculty Faculty;
 
-        public Student(string name, DateTime birthDate, string email, int phoneNumber) 
-            : base(name, birthDate, email, phoneNumber)
+        public Student(string name, Faculty faculty) 
+            : base(name)
         {
+            Faculty = faculty;
         }
 
         public override bool Activate()
