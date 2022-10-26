@@ -53,9 +53,12 @@
         /// <param name="name">
         /// Nombre de la persona.
         /// </param>
-        protected Person(string name)
+        protected Person(string name, DateTime birthDate, string email, int phoneNumber)
         {
             Name = name;
+            BirthDate = birthDate;
+            Email = email;
+            PhoneNumber = phoneNumber;
             IsActive = false;
         }
 
@@ -107,8 +110,8 @@
         protected Worker()
         { }
 
-        public Worker(string name, Departments department) 
-            : base(name)
+        public Worker(string name, DateTime birthDate, string email, int phoneNumber, Departments department) 
+            : base(name, birthDate, email, phoneNumber)
         {
             Department = department;
         }
@@ -159,8 +162,8 @@
         protected Student() : base()
         { }
 
-        public Student(string name, Faculty faculty) 
-            : base(name)
+        public Student(string name, DateTime birthDate, string email, int phoneNumber, Faculty faculty) 
+            : base(name, birthDate, email, phoneNumber)
         {
             Faculty = faculty;
         }
