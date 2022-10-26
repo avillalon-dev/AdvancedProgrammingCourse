@@ -6,6 +6,8 @@
 *.user
 *.sln.docstates
 
+[Mm]igrations/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
