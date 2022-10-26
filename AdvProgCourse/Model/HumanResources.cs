@@ -42,7 +42,7 @@
         /// <param name="department"></param>
         public void AddWorker(string name, DateTime birthDate, string email, int phoneNumber, Departments department)
         {
-            var worker = new Worker(name, department)
+            var worker = new Worker(name, birthDate, email, phoneNumber, department)
             {
                 BirthDate = birthDate,
                 Email = email,
