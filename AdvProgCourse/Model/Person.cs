@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Model
 {
     /// <summary>
     /// Modela la información asociada a una persona.
@@ -100,6 +102,7 @@
 
         public Departments Department { get; set; }
 
+        [NotMapped]
         public double Salary { get; set; }
 
         #endregion
