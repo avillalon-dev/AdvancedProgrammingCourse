@@ -42,6 +42,12 @@
         #region Constructors
 
         /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected Person()
+        { }
+
+        /// <summary>
         /// Inicializa un objeto <see cref="Person"/>
         /// </summary>
         /// <param name="name">
@@ -95,6 +101,12 @@
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected Worker()
+        { }
+
         public Worker(string name, Departments department) 
             : base(name)
         {
@@ -140,6 +152,12 @@
         /// Facultad a la que pertenece el estudiante
         /// </summary>
         public Faculty Faculty;
+
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected Student() : base()
+        { }
 
         public Student(string name, Faculty faculty) 
             : base(name)
