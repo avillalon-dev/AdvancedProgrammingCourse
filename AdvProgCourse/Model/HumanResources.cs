@@ -6,27 +6,27 @@
     {
         #region Fields
 
-        private List<Person> _people;
-
         private List<SalaryFunction> _salaryFunctions;
 
         #endregion
 
         #region Properties
 
-        public int Count { get { return _people.Count; } }
+        public List<Person> People { get; }
+
+        public int Count { get { return People.Count; } }
 
         #endregion
 
         public HumanResources()
         {
-            _people = new List<Person>();
+            People = new List<Person>();
             _salaryFunctions = new List<SalaryFunction>();
         }
 
         public HumanResources(List<SalaryFunction> salaryFunctions)
         {
-            _people = new List<Person>();
+            People = new List<Person>();
             _salaryFunctions = salaryFunctions;
         }
 
@@ -44,7 +44,7 @@
         {
             var worker = new Worker(name, birthDate, email, phoneNumber, department);
             worker.Activated += WorkerActivated;
-            _people.Add(worker);
+            People.Add(worker);
         }
 
         public void AddStudent()
@@ -53,7 +53,7 @@
 
         public void Activate()
         {
-            foreach (Person person in _people)
+            foreach (Person person in People)
             {
                 try
                 {

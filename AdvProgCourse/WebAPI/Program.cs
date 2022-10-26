@@ -1,3 +1,5 @@
+using Model;
+
 namespace WebAPI
 {
     public class Program
@@ -12,6 +14,12 @@ namespace WebAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            // Add human resource manager (no connection with DB)
+            var humanResources = new HumanResources();
+            humanResources.AddWorker("juan", DateTime.Now, "", 0, Departments.Automation);
+            humanResources.AddWorker("pedro", DateTime.Now, "", 0, Departments.Telecommunication);
+            builder.Services.AddSingleton(humanResources);
 
             var app = builder.Build();
 
