@@ -7,17 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{D23A5F9D-A22F-40B5-A136-94CE87AA48B4}"
 EndProject
-<<<<<<< Updated upstream
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelTests", "ModelTests\ModelTests.csproj", "{CD867BA9-1391-4DF8-87BD-E75770456B3C}"
-=======
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelTests", "ModelTests\ModelTests.csproj", "{CD867BA9-1391-4DF8-87BD-E75770456B3C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{A3719409-E637-4E35-9BDC-D8FBB513AA07}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryTests", "RepositoryTests\RepositoryTests.csproj", "{8897E93D-AF1F-45C7-A837-528B067FD4E1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{59299893-E84C-4C06-B471-6627939E6267}"
->>>>>>> Stashed changes
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,21 +27,6 @@ Global
 		{CD867BA9-1391-4DF8-87BD-E75770456B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD867BA9-1391-4DF8-87BD-E75770456B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD867BA9-1391-4DF8-87BD-E75770456B3C}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< Updated upstream
-=======
-		{A3719409-E637-4E35-9BDC-D8FBB513AA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3719409-E637-4E35-9BDC-D8FBB513AA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3719409-E637-4E35-9BDC-D8FBB513AA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3719409-E637-4E35-9BDC-D8FBB513AA07}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8897E93D-AF1F-45C7-A837-528B067FD4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8897E93D-AF1F-45C7-A837-528B067FD4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8897E93D-AF1F-45C7-A837-528B067FD4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8897E93D-AF1F-45C7-A837-528B067FD4E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59299893-E84C-4C06-B471-6627939E6267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59299893-E84C-4C06-B471-6627939E6267}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59299893-E84C-4C06-B471-6627939E6267}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59299893-E84C-4C06-B471-6627939E6267}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> Stashed changes
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
