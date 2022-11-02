@@ -21,7 +21,7 @@ namespace WebAPITests
 
             // act
             IEnumerable<Worker> workers = null;
-            HttpResponseMessage response = await client.GetAsync(@"HumanResources");
+            HttpResponseMessage response = await client.GetAsync(@"HumanResources/GetWorkers");
             if (response.IsSuccessStatusCode)
             {
                 workers = await response.Content.ReadAsAsync<IEnumerable<Worker>>();

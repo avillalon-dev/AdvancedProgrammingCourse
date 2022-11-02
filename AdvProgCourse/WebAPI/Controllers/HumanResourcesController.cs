@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
             _workerRepository = workerRepository;
         }
 
-        [HttpPost("{name},{birthdate},{email},{phoneNumber},{department}", Name = "PostWorker")]
+        [HttpPost("PostWorker/{name},{birthdate},{email},{phoneNumber},{department}", Name = "PostWorker")]
         public ActionResult<Worker> PostWorker(string name, DateTime birthdate, string email, int phoneNumber, int department)
         {
             _workerRepository.BeginTransaction();
@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
             return worker;
         }
 
-        [HttpGet(Name = "GetWorkers")]
+        [HttpGet("GetWorkers", Name = "GetWorkers")]
         public ActionResult<IEnumerable<Worker>> GetWorkers()
         {
             _workerRepository.BeginTransaction();
@@ -47,7 +47,7 @@ namespace WebAPI.Controllers
             return worker;
         }
 
-        [HttpGet("{id}", Name = "GetWorker")]
+        [HttpGet("GetWorker/{id}", Name = "GetWorker")]
         public ActionResult<Worker> GetWorker(int id)
         {
             _workerRepository.BeginTransaction();

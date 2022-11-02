@@ -34,6 +34,7 @@ namespace WebAPI
 
             app.UseAuthorization();
 
+            app.UseRouting();
 
             app.MapControllers();
 
