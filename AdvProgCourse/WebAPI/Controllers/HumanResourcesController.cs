@@ -31,9 +31,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("{id}", Name = "GetWorker")]
-        public IEnumerable<Worker> GetWorker(int id)
+        public Worker GetWorker(int id)
         {
-            return _humanResources.People.OfType<Worker>().Where(w => w.Id == id);
+            return _humanResources.People.OfType<Worker>().First(w => w.Id == id);
         }
     }
 }
