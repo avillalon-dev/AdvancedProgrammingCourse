@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -15,7 +16,7 @@ namespace Repository
         /// <summary>
         /// Cadena de conexión a la base de datos.
         /// </summary>
-        protected readonly string ConnectionString;
+        protected readonly ConnectionString ConnectionString;
 
         /// <summary>
         /// To detect redundant calls.
@@ -28,7 +29,7 @@ namespace Repository
         /// <param name="connectionString">
         /// Cadena de conexión a la base de datos.
         /// </param>
-        protected BaseRepository(string connectionString)
+        protected BaseRepository(ConnectionString connectionString)
         {
             ConnectionString = connectionString;
         }

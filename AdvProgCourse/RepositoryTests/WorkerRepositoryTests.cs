@@ -11,7 +11,7 @@ namespace RepositoryTests
         public WorkerRepositoryTests()
         {
             var connectionString = @"Data Source=ADRIANA-PC\SQLEXPRESS;AttachDBFilename=D:\cujae\Programación Avanzada\Código\DB\HumanResourcesDB.mdf;Initial Catalog=HumanResourcesDB;User ID=sa;Password=qwerty";
-            _repository = new DBRepository(connectionString);
+            _repository = new DBRepository(new ConnectionString(connectionString));
         }
 
         [TestMethod]

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,9 +29,9 @@ namespace Repository
         /// Un objeto <see cref="ConfigurationDBConnectionString"/> conteniendo la
         /// cadena de conexión a la base de datos.
         /// </param>
-        public DBRepository(string connectionString) : base(connectionString)
+        public DBRepository(ConnectionString connectionString) : base(connectionString)
         {
-            _context = new RepositoryContext(connectionString);
+            _context = new RepositoryContext(connectionString.Value);
 
             // Verifying database created
             if (!_context.Database.GetService<IRelationalDatabaseCreator>().Exists())
@@ -63,7 +64,7 @@ namespace Repository
         {
             if (!IsInTransaction)
             {
-                _context = new RepositoryContext(ConnectionString);
+                _context = new RepositoryContext(ConnectionString.Value);
                 IsInTransaction = true;
             }
             DisposedValue = false;
