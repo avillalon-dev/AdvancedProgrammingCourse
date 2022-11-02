@@ -1,4 +1,5 @@
 using Model;
+using Repository;
 
 namespace WebAPI
 {
@@ -15,11 +16,10 @@ namespace WebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // Add human resource manager (no connection with DB)
-            var humanResources = new HumanResources();
-            humanResources.AddWorker("juan", DateTime.Now, "", 0, Departments.Automation);
-            humanResources.AddWorker("pedro", DateTime.Now, "", 0, Departments.Telecommunication);
-            builder.Services.AddSingleton(humanResources);
+            // Add repository as service
+            var connectionString = new ConnectionString(@"Data Source=ADRIANA-PC\SQLEXPRESS;AttachDBFilename=D:\cujae\Programación Avanzada\Código\DB\HumanResourcesDB.mdf;Initial Catalog=HumanResourcesDB;User ID=sa;Password=qwerty");
+            builder.Services.AddSingleton(connectionString);
+            builder.Services.AddScoped<IWorkerRepository, DBRepository>();
 
             var app = builder.Build();
 

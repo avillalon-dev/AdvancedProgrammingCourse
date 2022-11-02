@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Model;
+using Repository;
+using System.Net;
 
 namespace WebAPI.Controllers
 {
@@ -9,31 +11,54 @@ namespace WebAPI.Controllers
     {
         private readonly ILogger<HumanResourcesController> _logger;
 
-        private readonly HumanResources _humanResources;
+        private readonly IWorkerRepository _workerRepository;
 
-        public HumanResourcesController(ILogger<HumanResourcesController> logger, HumanResources humanResources)
+        public HumanResourcesController(ILogger<HumanResourcesController> logger, IWorkerRepository workerRepository)
         {
             _logger = logger;
-            _humanResources = humanResources;
+            _workerRepository = workerRepository;
         }
 
-        [HttpPost("{name},{department}", Name = "PostWorker")]
-        public Worker PostWorker(string name, int department)
+        [HttpPost("{name},{birthdate},{email},{phoneNumber},{department}", Name = "PostWorker")]
+        public ActionResult<Worker> PostWorker(string name, DateTime birthdate, string email, int phoneNumber, int department)
         {
-            _humanResources.AddWorker(name, DateTime.Now, "", 0, Enum.GetValues<Departments>()[department]);
-            return _humanResources.People.OfType<Worker>().First(w => w.Name == name);
+            _workerRepository.BeginTransaction();
+            var worker = _workerRepository.CreateWorker(name, birthdate, email, phoneNumber, Enum.GetValues<Departments>()[department]);
+            _workerRepository.CommitTransaction();
+            if (worker == null)
+            {
+                _logger.LogError($"{nameof(HumanResourcesController.PostWorker)} -> cannot create worker");
+                return NotFound();
+            }
+            return worker;
         }
 
         [HttpGet(Name = "GetWorkers")]
-        public IEnumerable<Worker> GetWorkers()
+        public ActionResult<IEnumerable<Worker>> GetWorkers()
         {
-            return _humanResources.People.OfType<Worker>();
+            _workerRepository.BeginTransaction();
+            var worker = _workerRepository.GetWorkers();
+            _workerRepository.CommitTransaction();
+            if (worker == null)
+            {
+                _logger.LogError($"{nameof(HumanResourcesController.GetWorker)} -> worker not found");
+                return NotFound();
+            }
+            return worker;
         }
 
         [HttpGet("{id}", Name = "GetWorker")]
-        public Worker GetWorker(int id)
+        public ActionResult<Worker> GetWorker(int id)
         {
-            return _humanResources.People.OfType<Worker>().First(w => w.Id == id);
+            _workerRepository.BeginTransaction();
+            var worker = _workerRepository.GetWorker(id);
+            _workerRepository.CommitTransaction();
+            if (worker == null)
+            {
+                _logger.LogError($"{nameof(HumanResourcesController.GetWorker)} -> worker not found");
+                return NotFound();
+            }
+            return worker;
         }
     }
 }
