@@ -42,7 +42,12 @@
         /// <param name="department"></param>
         public void AddWorker(string name, DateTime birthDate, string email, int phoneNumber, Departments department)
         {
-            var worker = new Worker(name, birthDate, email, phoneNumber, department);
+            var worker = new Worker(name, birthDate, email, phoneNumber, department)
+            {
+                BirthDate = birthDate,
+                Email = email,
+                PhoneNumber = phoneNumber
+            };
             worker.Activated += WorkerActivated;
             People.Add(worker);
         }

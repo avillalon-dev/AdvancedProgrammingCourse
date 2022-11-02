@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Model
 {
     /// <summary>
     /// Modela la información asociada a una persona.
@@ -42,15 +44,18 @@
         #region Constructors
 
         /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected Person()
+        { }
+
+        /// <summary>
         /// Inicializa un objeto <see cref="Person"/>
         /// </summary>
         /// <param name="name">
         /// Nombre de la persona.
         /// </param>
-        /// <param name="birthDate"></param>
-        /// <param name="email"></param>
-        /// <param name="phoneNumber"></param>
-        public Person(string name, DateTime birthDate, string email, int phoneNumber)
+        protected Person(string name, DateTime birthDate, string email, int phoneNumber)
         {
             Name = name;
             BirthDate = birthDate;
@@ -97,9 +102,16 @@
 
         public Departments Department { get; set; }
 
+        [NotMapped]
         public double Salary { get; set; }
 
         #endregion
+
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected Worker()
+        { }
 
         public Worker(string name, DateTime birthDate, string email, int phoneNumber, Departments department) 
             : base(name, birthDate, email, phoneNumber)
@@ -123,13 +135,40 @@
     }
 
     /// <summary>
+    /// Facultades
+    /// </summary>
+    public enum Faculty
+    {
+        /// <summary>
+        /// Automática y Biomédica
+        /// </summary>
+        AutomationBiomedical,
+        /// <summary>
+        /// Telecomunicaciones
+        /// </summary>
+        Telecommunication
+    }
+
+    /// <summary>
     /// Modela la información asociada a un estudiante.
     /// </summary>
     public class Student : Person
     {
-        public Student(string name, DateTime birthDate, string email, int phoneNumber) 
+        /// <summary>
+        /// Facultad a la que pertenece el estudiante
+        /// </summary>
+        public Faculty Faculty;
+
+        /// <summary>
+        /// Requerido por EF.
+        /// </summary>
+        protected Student() : base()
+        { }
+
+        public Student(string name, DateTime birthDate, string email, int phoneNumber, Faculty faculty) 
             : base(name, birthDate, email, phoneNumber)
         {
+            Faculty = faculty;
         }
 
         public override bool Activate()
