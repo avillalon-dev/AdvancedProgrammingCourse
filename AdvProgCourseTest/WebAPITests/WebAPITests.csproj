@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj" />
+    <Reference Include="Model">
+      <HintPath>..\..\AdvProgCourse\Model\bin\Debug\net6.0\Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

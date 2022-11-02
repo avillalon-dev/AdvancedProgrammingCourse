@@ -8,7 +8,7 @@ namespace WebAPITests
     public class HumanResourcesServiceTests
     {
         [TestMethod]
-        public async Task Can_GetWorker_Test()
+        public async Task Can_GetWorkers_Test()
         {
             // arrange
             HttpClient client = new HttpClient();
@@ -20,15 +20,15 @@ namespace WebAPITests
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
             // act
-            Worker worker = null;
-            HttpResponseMessage response = await client.GetAsync(@"HumanResources\GetWorkers");
+            IEnumerable<Worker> workers = null;
+            HttpResponseMessage response = await client.GetAsync(@"HumanResources");
             if (response.IsSuccessStatusCode)
             {
-                worker = await response.Content.ReadAsAsync<Worker>();
+                workers = await response.Content.ReadAsAsync<IEnumerable<Worker>>();
             }
 
             // assert
-            Assert.IsNotNull(worker);
+            Assert.IsNotNull(workers);
         }
     }
 }
