@@ -14,8 +14,11 @@ namespace RepositoryTests
             _repository = new DBRepository(new ConnectionString(connectionString));
         }
 
-        [TestMethod]
-        public void Can_CreateWorker_Test()
+        [DataTestMethod]
+        [DataRow("sensor1", "m")]
+        [DataRow("sensor2", "m")]
+        [DataRow("sensor3", "m")]
+        public void Can_CreateWorker_Test(string Xname, string engunit)
         {
             // arrange
             string name = "Juan";
